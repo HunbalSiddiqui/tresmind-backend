@@ -20,6 +20,15 @@ app.use(express.json());
 app.use(mongoSanitize());
 app.use(xss());
 
+// test route
+app.use("/test", (req,res)=>{
+  res.status(200)
+  .json({
+    message: "Working",
+    success: true
+  })
+});
+
 // routes
 app.use("/api/v1/products", productRouter);
 
